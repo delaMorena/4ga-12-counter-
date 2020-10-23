@@ -14,9 +14,14 @@ export function Home() {
 	const handleKeyPress = event => {
 		if (event.key === "Enter" && value != "") {
 			setTodo([...todo, value]);
-            setValue("")
 		}
-	}
+    };
+    // he probado, entre otras cosas a crear otra fn para que me "resetee el valor"
+ //   const handleKeyPress2 = event => {
+ //   if (event.key === "Enter" && value == "") {
+ //           setValue("Introduce otra tarea");
+ //       }
+ //   };
 	//cuando presione enter cambio la lista todo y borro el imput
 	//cuando haga click en el li que se borre const handleComosellame(click). se coloca en el li
 
@@ -24,13 +29,13 @@ export function Home() {
 		<div className="text-center mt-5">
 			<div className="row">
 				<div className="container-fluid">
-					<h1 className="display-2">todos</h1>
+					<h5>todos mis ToDos</h5>
 					<div className="container">
 						<p>Mis tareas son: {value}</p>
 						<input
 							type="text"
 							onChange={handleChange}
-							onKeyPress={handleKeyPress}
+                            onKeyPress={handleKeyPress}
 							
 						/>
 						<p />
