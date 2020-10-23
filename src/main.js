@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "bootstrap";
 import "./style.css"
 
-import Home from "./components/home.js"
+import { Home } from "./components/home.js"
 
 const container = document.querySelector("#app");
 const component = <Home />;
