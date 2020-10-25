@@ -1,6 +1,4 @@
 import React from "react";
-
-//include images into your bundle
 import { useState, useEffect } from "react";
 import { checkPropTypes } from "prop-types";
 
@@ -13,7 +11,11 @@ export function Home() {
 	const handleChange = event => setValue(event.target.value);
 	const handleKeyPress = event => {
 		if (event.key === "Enter" && value != "") {
-			setTodo([...todo, value]);
+            setTodo([...todo, value]);
+            setValue ("");
+            if (value == "") {
+                setValue ("enter your text");
+            }
 		}
     };
     // he probado, entre otras cosas a crear otra fn para que me "resetee el valor"
@@ -31,14 +33,15 @@ export function Home() {
 				<div className="container-fluid">
 					<h5>todos mis ToDos</h5>
 					<div className="container">
-						<p>Mis tareas son: {value}</p>
+						
 						<input
 							type="text"
 							onChange={handleChange}
                             onKeyPress={handleKeyPress}
+                            placeholder="your text"
 							
 						/>
-						<p />
+                        <p>Mis tareas son: {value}</p>
 						<ul>
 							{todo.map((value, index) => (
 								<li key={index}>{value}</li>
