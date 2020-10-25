@@ -15,40 +15,31 @@ export function Home() {
             setValue ("");
 		}
     };
-    // he probado, entre otras cosas a crear otra fn para que me "resetee el valor"
- //   const handleKeyPress2 = event => {
- //   if (event.key === "Enter" && value == "") {
- //           setValue("Introduce otra tarea");
- //       }
- //   };
+
 	//cuando presione enter cambio la lista todo y borro el imput
 	//cuando haga click en el li que se borre const handleComosellame(click). se coloca en el li
 
 	return (
-		<div className="text-center mt-5">
-			<div className="row">
-				<div className="container-fluid">
-					<h5>todos mis ToDos</h5>
-					<div className="container">
-						
-						<input
-							type="text"
-							onChange={handleChange}
-                            onKeyPress={handleKeyPress}
-                            placeholder="your text"
-							
-						/>
-                        <p>Mis tareas son: {value}</p>
-						<ul>
-							{todo.map((value, index) => (
-								<li key={index}>{value}</li>
-							))}
-						</ul>
-						<br />
-					</div>
-				</div>
-			</div>
-		</div>
+        <div className="container-fluid">
+            <h2>todos mis ToDos</h2>
+            <div className="container">
+                <input
+                    type="text"
+                    onChange={handleChange}
+                    onKeyPress={handleKeyPress}
+                    placeholder="próxima tarea"
+                    value={value}>
+                </input>
+                
+                <h5>Mis tareas son: {value}</h5>
+                <ul>
+                    {todo.map((value, index) => (
+                        <li key={index}>{value}</li>
+                    ))}
+                </ul>
+                <br />
+            </div>
+        </div>
 	);
 }
 

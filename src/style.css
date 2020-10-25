@@ -1,1 +1,27 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+    font-family: 'Syne Mono', monospace;
+}
+#app {
+    margin: 30px auto;
+    width: 400px;
+    height: auto;
+    background-color: #283149;
+}
+h2 {
+    padding-top: 20px;
+    color: #dbedf3;
+}
+input {
+    margin-top: 20px;
+}
+h5 {
+    margin-top: 20px;
+    color: #00818a;
+}
+ul {
+    background-color: #283149;
+    color: #00818a;
+;
+}
