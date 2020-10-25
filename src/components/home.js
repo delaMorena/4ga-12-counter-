@@ -13,9 +13,6 @@ export function Home() {
 		if (event.key === "Enter" && value != "") {
             setTodo([...todo, value]);
             setValue ("");
-            if (value == "") {
-                setValue ("enter your text");
-            }
 		}
     };
     // he probado, entre otras cosas a crear otra fn para que me "resetee el valor"
