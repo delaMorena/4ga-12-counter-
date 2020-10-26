@@ -23,5 +23,9 @@ h5 {
 ul {
     background-color: #283149;
     color: #00818a;
+    list-style-type: none;
 ;
+}
+li::marker {
+    color: azure;
 }

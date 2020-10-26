@@ -34,7 +34,7 @@ export function Home() {
                 <h5>Mis tareas son: {value}</h5>
                 <ul>
                     {todo.map((value, index) => (
-                        <li key={index}>{value}</li>
+                        <li key={index}><i class="fas fa-check"></i>{value}</li> 
                     ))}
                 </ul>
                 <br />
