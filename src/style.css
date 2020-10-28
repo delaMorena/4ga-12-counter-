@@ -26,6 +26,19 @@ ul {
     list-style-type: none;
 ;
 }
-li::marker {
-    color: azure;
+button {
+    background-color: #dbedf3; /* Green */
+    border: none;
+    color: #283149;
+    padding: 15px 32px;
+    text-align: center;
+    /* text-decoration: none; */
+    display: inline-block;
+    font-size: 16px;
+}
+.done {
+    margin-left: 4rem;
+}
+.yes {
+    text-decoration: line-through;
 }

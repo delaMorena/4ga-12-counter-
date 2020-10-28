@@ -5,7 +5,8 @@ import { checkPropTypes } from "prop-types";
 //create your first component
 export function Home() {
 	const [value, setValue] = useState();
-	const [todo, setTodo] = useState([]);
+    const [todo, setTodo] = useState([]);
+    const [checked, setChecked] = useState("");
 
 	//las funciones que maneja el evento se colocan aparte por facilidad de lectura:
 	const handleChange = event => setValue(event.target.value);
@@ -15,10 +16,7 @@ export function Home() {
             setValue ("");
 		}
     };
-
-	//cuando presione enter cambio la lista todo y borro el imput
-	//cuando haga click en el li que se borre const handleComosellame(click). se coloca en el li
-
+   
 	return (
         <div className="container-fluid">
             <h2>todos mis ToDos</h2>
@@ -34,7 +32,16 @@ export function Home() {
                 <h5>Mis tareas son: {value}</h5>
                 <ul>
                     {todo.map((value, index) => (
-                        <li key={index}><i class="fas fa-check"></i>{value}</li> 
+                        <li key={index}>
+                                <button type="button" onClick={() => setChecked(" yes")}>
+                                    <span aria-hidden="true">
+                                        <i className="fas fa-check" ></i> 
+                                    </span>
+                                    <span className= { "done" + checked } >
+                                        {value} 
+                                    </span>
+                                </button>     
+                        </li>    
                     ))}
                 </ul>
                 <br />
