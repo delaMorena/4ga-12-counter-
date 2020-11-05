@@ -4,16 +4,17 @@ import { checkPropTypes } from "prop-types";
 
 //create your first component
 export function Home() {
-	const [value, setValue] = useState();
+	const [task, setTask] = useState();
     const [todo, setTodo] = useState([]);
     const [checked, setChecked] = useState("");
 
 	//las funciones que maneja el evento se colocan aparte por facilidad de lectura:
-	const handleChange = event => setValue(event.target.value);
+    const handleChange = event => setTask(event.target.value);
+    //ta
 	const handleKeyPress = event => {
-		if (event.key === "Enter" && value != "") {
-            setTodo([...todo, value]);
-            setValue ("");
+		if (event.key === "Enter" && task != "") {
+            setTodo([...todo, task]);
+            setTask ("");
 		}
     };
    
@@ -26,19 +27,21 @@ export function Home() {
                     onChange={handleChange}
                     onKeyPress={handleKeyPress}
                     placeholder="próxima tarea"
-                    value={value}>
+                    value={task}>
                 </input>
                 
-                <h5>Mis tareas son: {value}</h5>
+                <h5>Mis tareas son: {task}</h5>
                 <ul>
-                    {todo.map((value, index) => (
+                    {todo.map((element, index) => (
                         <li key={index}>
-                                <button type="button" onClick={() => setChecked(" yes")}>
+                                <button type="button" 
+                                onClick={() => setChecked(" yes")}
+                                >
                                     <span aria-hidden="true">
                                         <i className="fas fa-check" ></i> 
                                     </span>
                                     <span className= { "done" + checked } >
-                                        {value} 
+                                        {element} 
                                     </span>
                                 </button>     
                         </li>    
