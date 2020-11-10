@@ -4,19 +4,28 @@ import { checkPropTypes } from "prop-types";
 
 //create your first component
 export function Home() {
-	const [task, setTask] = useState();
-    const [todo, setTodo] = useState([]);
+	const [task, setTask] = useState(); 
+    const [todo, setTodo] = useState([]); // su list mi todo
     const [checked, setChecked] = useState("");
+    const [key, setKey] = useState(0);
 
 	//las funciones que maneja el evento se colocan aparte por facilidad de lectura:
     const handleChange = event => setTask(event.target.value);
-    //ta
+    
 	const handleKeyPress = event => {
 		if (event.key === "Enter" && task != "") {
-            setTodo([...todo, task]);
+            setTodo([...todo, {"id": key, "chore": task}]);
             setTask ("");
+            setKey(key + 1);
 		}
+        console.log(task, key);
     };
+    function deleteTask(id) { 
+        let newList = todo.filter((element, index) => {
+            return (element.id !== id) // DEVUELVE TODOS LOS ELEMENTOS QUE CUMPLAN ESTE REQUISITO (LO FILTRA)
+        })
+        setTodo(newList); // DEFINO NUEVO ESTADO DE LA LISTA TODOS
+    }
    
 	return (
         <div className="container-fluid">
@@ -32,9 +41,11 @@ export function Home() {
                 
                 <h5>Mis tareas son: {task}</h5>
                 <ul>
-                    {todo.map((element, index) => (
-                        <li key={index}>
-                                <button type="button" 
+                    {todo.map((element, index) => {
+                        return (
+                        <li key={element.id}>
+                            {element.id} {element.chore} 
+                                {/* <button type="button" 
                                 onClick={() => setChecked(" yes")}
                                 >
                                     <span aria-hidden="true">
@@ -43,9 +54,12 @@ export function Home() {
                                     <span className= { "done" + checked } >
                                         {element} 
                                     </span>
-                                </button>     
+                                </button>      */}
+                            <button onClick={() => deleteTask(element.id)} type="button" className="close" aria-label="Close"> 
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </li>    
-                    ))}
+                    )})}
                 </ul>
                 <br />
             </div>
