@@ -44,7 +44,7 @@ export function Home() {
                     {todo.map((element, index) => {
                         return (
                         <li key={element.id}>
-                            {element.id} {element.chore} 
+                            {element.chore} 
                                 {/* <button type="button" 
                                 onClick={() => setChecked(" yes")}
                                 >
