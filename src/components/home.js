@@ -4,14 +4,13 @@ import { checkPropTypes } from "prop-types";
 
 //create your first component
 export function Home() {
-	const [task, setTask] = useState(); 
-    const [todo, setTodo] = useState([]); 
-    const [checked, setChecked] = useState("");
+	const [task, setTask] = useState();
+    const [todo, setTodo] = useState([]);
     const [key, setKey] = useState(0);
 
 	//las funciones que maneja el evento se colocan aparte por facilidad de lectura:
     const handleChange = event => setTask(event.target.value);
-    
+
 	const handleKeyPress = event => {
 		if (event.key === "Enter" && task != "") {
             setTodo([...todo, {"id": key, "chore": task}]);
@@ -20,13 +19,13 @@ export function Home() {
 		}
         console.log(task, key);
     };
-    function deleteTask(id) { 
+    function deleteTask(id) {
         let newList = todo.filter((element, index) => {
             return (element.id !== id) // DEVUELVE TODOS LOS ELEMENTOS QUE CUMPLAN ESTE REQUISITO (LO FILTRA)
         })
         setTodo(newList); // DEFINO NUEVO ESTADO DE LA LISTA TODOS
     }
-   
+
 	return (
         <div className="container-fluid">
             <h2>todos mis ToDos</h2>
@@ -38,27 +37,17 @@ export function Home() {
                     placeholder="próxima tarea"
                     value={task}>
                 </input>
-                
+
                 <h5>Mis tareas son: {task}</h5>
                 <ul>
                     {todo.map((element, index) => {
                         return (
                         <li key={element.id}>
-                            {element.chore} 
-                                {/* <button type="button" 
-                                onClick={() => setChecked(" yes")}
-                                >
-                                    <span aria-hidden="true">
-                                        <i className="fas fa-check" ></i> 
-                                    </span>
-                                    <span className= { "done" + checked } >
-                                        {element} 
-                                    </span>
-                                </button>      */}
-                            <button onClick={() => deleteTask(element.id)} type="button" className="close" aria-label="Close"> 
-                                <span aria-hidden="true">&times;</span>
+                            <button onClick={() => deleteTask(element.id)} type="button" className="close" aria-label="Close">
+                                <span aria-hidden="true"><i className="fas fa-times"></i></span>
                             </button>
-                        </li>    
+                            <h5 className= "task">{element.chore}</h5>
+                        </li>
                     )})}
                 </ul>
                 <br />
@@ -66,6 +55,18 @@ export function Home() {
         </div>
 	);
 }
+
+
+//Probar a meter esta funcionalidad junto a deleteTask con un if.
+// const [checked, setChecked] = useState("");
+    // <button type="button" onClick={() => setChecked(" yes")}>
+    //     <span aria-hidden="true">
+    //         <i className="fas fa-check" ></i>
+    //     </span>
+    //     <span className= { "done" + checked } >
+    //         {element}
+    //     </span>
+    // </button>
 
 // se declara la variable const con un "value" que se cambia al aplicar "setValue", por eso se usa use state
 // si la funcion flecha no retorna nada van currybraquet despues de la flecha. Si retorna va con ()

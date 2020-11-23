@@ -22,22 +22,28 @@ h5 {
 }
 ul {
     background-color: #283149;
-    color: #00818a;
-    list-style-type: none;
-;
+    color: #dbedf3;
 }
-button {
+.task {
+    color: #dbedf3;
+}
+span {
+    color: #00818a;
+}
+
+
+/* button {
     background-color: #dbedf3; 
     border: none;
-    color: #283149;
+    color: #dbedf3;
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
-}
-.done {
+} */
+/* .done {
     margin-left: 4rem;
 }
 .yes {
     text-decoration: line-through;
-}
+} */
