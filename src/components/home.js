@@ -5,7 +5,7 @@ import { checkPropTypes } from "prop-types";
 //create your first component
 export function Home() {
 	const [task, setTask] = useState(); 
-    const [todo, setTodo] = useState([]); // su list mi todo
+    const [todo, setTodo] = useState([]); 
     const [checked, setChecked] = useState("");
     const [key, setKey] = useState(0);
 
